@@ -48,9 +48,9 @@ def game_if_quitat2():
         print(' '.join(lines))
 
     if comp_sum > player_sum:
-        print("You lose")
+        print("You lose as your sum is less than the computer's sum")
     elif comp_sum < player_sum:
-        print("You win")
+        print("You win as your sum is greater than the computer's sum")
     else:
         print("Draw")
 
@@ -73,25 +73,33 @@ def game_if_quitat3():
     if comp_sum > 21 and player_sum < 21:
         print("You win")
     elif comp_sum < 21 and player_sum > 21:
-        print("You lose")
+        print(f"You lose as you crossed 21")
     elif comp_sum > player_sum:
-        print("You lose")
+        print("You lose as your sum is less than the computer's sum")
     elif comp_sum < player_sum:
-        print("You win")
+        print("You win as your sum is greater than the computer's sum")
     else:
         print("Draw")
 
 
 
 while game_is_on:
-    print(f"computer one of the 3 numbers is {computer_nums[0]}")
+    print(f"computer one of the numbers is {computer_nums[0]}")
     print(f"your 2 of the numbers are {player_nums[:2]}")
 
     ask_for_show = input("Do you want to see the third card ? (y/n) ").lower()
     if ask_for_show == "y":
-        print(player_nums)
         game_if_quitat3()
         game_is_on = False
     elif ask_for_show == "n":
         game_if_quitat2()
         game_is_on = False  
+
+    play_again = input("Do you want to play again ? (y/n) ").lower()
+    if play_again == "y":
+        game_is_on = True
+        os.system("cls")
+    elif play_again == "n":
+        game_is_on = False
+        print("Thank you for playing the game")
+        break
